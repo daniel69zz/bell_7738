@@ -1,0 +1,22 @@
+services:
+  # Sitio construido y servido por nginx → http://localhost:8080
+  web:
+    build:
+      context: .
+      target: runtime
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+
+  # Vite con recarga en caliente → http://localhost:5173
+  # docker compose --profile dev up dev
+  dev:
+    build:
+      context: .
+      target: dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    profiles: ["dev"]

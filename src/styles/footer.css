@@ -1,0 +1,6 @@
+/* ---------- pie ---------- */
+.foot { border-top: 1px solid var(--line); padding: 44px 0 40px; }
+.foot-in { display: flex; flex-wrap: wrap; gap: 26px; justify-content: space-between; align-items: flex-end; }
+.foot-nav { display: flex; flex-wrap: wrap; gap: 22px; font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.foot-nav a:hover { color: var(--bone); }
+.foot-small { font-family: var(--mono); font-size: 9.5px; letter-spacing: .1em; color: #7B876F; margin-top: 14px; }

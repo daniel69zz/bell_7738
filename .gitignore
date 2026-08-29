@@ -1,0 +1,50 @@
+# ---------- dependencias ----------
+node_modules
+
+# ---------- salida de build ----------
+dist
+dist-ssr
+build
+*.local
+
+# ---------- caché de herramientas ----------
+.vite
+.cache
+.eslintcache
+.npm
+*.tsbuildinfo
+
+# ---------- logs ----------
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ---------- variables de entorno ----------
+# .env.example sí se versiona: es la plantilla del equipo.
+.env
+.env.*
+!.env.example
+
+# ---------- docker ----------
+# Los overrides son locales de cada máquina; Dockerfile y compose.yaml se versionan.
+compose.override.yaml
+docker-compose.override.yml
+
+# ---------- editores ----------
+.idea
+*.swp
+*.swo
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# ---------- sistema operativo ----------
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db

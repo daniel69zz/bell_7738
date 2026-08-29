@@ -1,0 +1,26 @@
+/* ---------- hero ---------- */
+.hero { padding: 132px 0 clamp(56px, 8vw, 96px); }
+.hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; gap: clamp(36px, 5vw, 72px); align-items: center; }
+.hero h1 { font-size: clamp(38px, 5.6vw, 68px); font-weight: 800; font-stretch: 118%; margin: 22px 0 24px; }
+.hero h1 em { font-style: normal; color: var(--green-2); }
+.hero-lead { max-width: 46ch; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 10px; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); }
+.hero-meta b { color: var(--bone); font-weight: 600; }
+
+.screen { padding: 18px 20px 14px; cursor: pointer; user-select: none; }
+.scr-top { display: flex; gap: 14px; margin-bottom: 12px; font-family: var(--mono); font-size: 8.5px; font-weight: 600; letter-spacing: .17em; color: rgba(63,211,160,.26); }
+.scr-top .lit { color: rgba(63,211,160,.85); }
+.scr-top .lit::before { content: "●"; margin-right: 4px; font-size: 7px; vertical-align: 1px; }
+.flipper { transition: transform 1.15s cubic-bezier(.72,-0.12,.2,1.1); transform-origin: 50% 50%; padding: 4px 0; }
+.scr-bot { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(63,211,160,.16); }
+.reading { position: relative; font-family: var(--disp); font-weight: 700; font-size: 15px; letter-spacing: .24em; color: var(--on-dark); font-stretch: 100%; }
+.reading span { transition: opacity .45s ease; }
+.reading span:last-child { position: absolute; left: 0; top: 0; }
+.scr-hint { font-family: var(--mono); font-size: 8.5px; letter-spacing: .13em; text-transform: uppercase; color: rgba(141,155,134,.7); }
+.screen:hover .scr-hint { color: rgba(63,211,160,.9); }
+
+@media (max-width: 940px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-visual { order: -1; }
+}

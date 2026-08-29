@@ -1,0 +1,16 @@
+/* ---------- proceso ---------- */
+.proc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--line); }
+.proc-step { padding: 26px 24px 30px 0; border-right: 1px solid var(--line); position: relative; }
+.proc-step:last-child { border-right: none; }
+.proc-step::before { content: ""; position: absolute; top: -1px; left: 0; width: 0; height: 1px; background: var(--green); transition: width 1s cubic-bezier(.2,.7,.25,1); transition-delay: var(--d, 0ms); }
+.proc-step.in::before { width: 100%; }
+.proc-num { width: 42px; margin-bottom: 20px; }
+.proc-step h3 { font-size: 20px; margin-bottom: 10px; }
+.proc-step p { color: var(--muted); font-size: 14.5px; line-height: 1.6; padding-right: 18px; }
+.proc-when { display: block; margin-top: 14px; font-family: var(--mono); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--green-2); }
+
+@media (max-width: 940px) {
+  .proc { grid-template-columns: 1fr; }
+  .proc-step { border-right: none; border-bottom: 1px solid var(--line); padding: 24px 0 26px; }
+  .proc-step:last-child { border-bottom: none; }
+}
