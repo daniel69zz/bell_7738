@@ -50,7 +50,7 @@
 /* dos columnas aguantan hasta ~820 px; por debajo, una sola */
 @media (max-width: 820px) {
   .prd-grid { grid-template-columns: 1fr; gap: 16px; }
-  .prd-mock { height: clamp(190px, 46vw, 240px); }
+  .prd-mock { height: clamp(216px, 46vw, 240px); }  /* 'Sello' pide 211px */
 }
 
 @media (max-width: 720px) {

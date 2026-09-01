@@ -1,6 +1,6 @@
 /* ---------- hero ---------- */
 /* el hueco superior se calcula desde el alto real de la barra fija */
-.hero { padding: calc(var(--nav-h) + clamp(46px, 7vw, 64px)) 0 clamp(60px, 8vw, 96px); }
+.hero { padding-block: calc(var(--nav-h) + clamp(46px, 7vw, 64px)) clamp(60px, 8vw, 96px); }
 .hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; gap: clamp(36px, 5vw, 72px); align-items: center; }
 .hero h1 { font-size: clamp(35px, 6.6vw, 68px); font-weight: 800; font-stretch: 118%; margin: 22px 0 24px; }
 .hero h1 em { font-style: normal; color: var(--green-2); }

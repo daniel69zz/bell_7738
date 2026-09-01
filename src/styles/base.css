@@ -52,7 +52,10 @@ html, body { margin: 0; padding: 0; }
 /* correos, URLs y palabras largas no empujan el ancho en pantallas de 320 px */
 .b7 h1, .b7 h2, .b7 h3, .b7 p, .b7 li { overflow-wrap: break-word; }
 .b7 a { color: inherit; text-decoration: none; }
-.b7 button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+/* :where() deja el reset en especificidad (0,1,0), la misma que .key o .chip:
+   así el reset sigue aplicando a los botones pelados, pero un botón con clase
+   propia recupera su fondo, su borde y su tipografía por orden de cascada. */
+.b7 :where(button) { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
 .b7 ::selection { background: var(--green); color: #05110B; }
 .b7 :focus-visible { outline: 2px solid var(--green-2); outline-offset: 3px; border-radius: 2px; }
 
@@ -70,7 +73,7 @@ html, body { margin: 0; padding: 0; }
   letter-spacing: .20em; text-transform: uppercase; color: var(--green-2);
   display: inline-flex; align-items: center; gap: 9px;
 }
-.eyebrow::before { content: ""; width: 6px; height: 6px; background: var(--green); box-shadow: 0 0 9px var(--green); }
+.eyebrow::before { content: ""; width: 6px; height: 6px; background: var(--green); box-shadow: 0 0 9px var(--green); align-self: flex-start; margin-top: .5em; }
 .eyebrow.amber { color: var(--amber); }
 .eyebrow.amber::before { background: var(--amber); box-shadow: 0 0 9px rgba(223,165,60,.7); }
 .lead { color: var(--muted); font-size: clamp(15.5px, 1.6vw, 18px); line-height: 1.68; }
@@ -126,7 +129,9 @@ html, body { margin: 0; padding: 0; }
 }
 
 /* ---------- ritmo de sección ---------- */
-.sec { padding: clamp(78px, 11vw, 130px) 0; }
+/* padding-block, no el atajo: 'padding: X 0' reiniciaría a cero el gutter
+   lateral de .wrap, que va en el mismo elemento (<section class="sec wrap">). */
+.sec { padding-block: clamp(78px, 11vw, 130px); }
 /* El bloque se centra en el contenedor, pero el texto sigue alineado a la
    izquierda: los títulos se despegan del margen sin perder el tono editorial.
    Por debajo de 720px de contenido el auto no tiene efecto y queda a ras. */
@@ -161,6 +166,6 @@ html, body { margin: 0; padding: 0; }
 /* --- teléfono apaisado: la altura es el recurso escaso --- */
 @media (max-height: 520px) and (orientation: landscape) {
   .b7 { --nav-h: 52px; }
-  .sec { padding: 56px 0; }
+  .sec { padding-block: 56px; }
   .sec-head { margin-bottom: 28px; }
 }
