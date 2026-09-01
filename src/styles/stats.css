@@ -9,3 +9,11 @@
 @media (max-width: 940px) {
   .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 20px; }
 }
+
+@media (max-width: 720px) {
+  .stats-grid { gap: 26px 18px; }
+  .stat { gap: 10px; }
+  .stat-scr { height: 42px; }
+  .stat b { font-size: 13px; }
+  .stat span { font-size: 9.5px; letter-spacing: .08em; line-height: 1.5; }
+}

@@ -9,8 +9,22 @@
 .proc-step p { color: var(--muted); font-size: 14.5px; line-height: 1.6; padding-right: 18px; }
 .proc-when { display: block; margin-top: 14px; font-family: var(--mono); font-size: 9.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--green-2); }
 
-@media (max-width: 940px) {
+/* tablet: 2x2. La línea verde superior de cada paso hace de separador
+   horizontal, así que la fila de arriba solo necesita su borde inferior. */
+@media (max-width: 1024px) {
+  .proc { grid-template-columns: repeat(2, 1fr); }
+  .proc-step:nth-child(2n) { border-right: none; padding-left: 26px; padding-right: 0; }
+  .proc-step:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .proc-step:nth-child(n+3) { padding-top: 30px; }
+}
+
+@media (max-width: 640px) {
   .proc { grid-template-columns: 1fr; }
   .proc-step { border-right: none; border-bottom: 1px solid var(--line); padding: 24px 0 26px; }
+  .proc-step:nth-child(2n) { padding-left: 0; }
+  .proc-step:nth-child(n+3) { padding-top: 24px; }
   .proc-step:last-child { border-bottom: none; }
+  .proc-step p { padding-right: 0; }
+  .proc-num { width: 36px; margin-bottom: 16px; }
+  .proc-step h3 { font-size: 19px; }
 }

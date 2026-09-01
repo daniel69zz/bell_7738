@@ -25,6 +25,7 @@ html, body { margin: 0; padding: 0; }
 
   --gut: clamp(20px, 5vw, 64px);
   --max: 1200px;
+  --nav-h: 68px;        /* alto de la barra fija; de aquí sale el scroll-margin */
 
   background: var(--case);
   color: var(--bone);
@@ -32,6 +33,8 @@ html, body { margin: 0; padding: 0; }
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;   /* iOS no infla el texto al girar el aparato */
+  text-size-adjust: 100%;
   min-height: 100%;
   overflow-x: hidden;
   position: relative;
@@ -46,13 +49,20 @@ html, body { margin: 0; padding: 0; }
 
 .b7 h1, .b7 h2, .b7 h3, .b7 h4 { margin: 0; font-family: var(--disp); font-weight: 700; letter-spacing: -.022em; line-height: 1.04; font-stretch: 112%; }
 .b7 p { margin: 0; }
+/* correos, URLs y palabras largas no empujan el ancho en pantallas de 320 px */
+.b7 h1, .b7 h2, .b7 h3, .b7 p, .b7 li { overflow-wrap: break-word; }
 .b7 a { color: inherit; text-decoration: none; }
 .b7 button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
 .b7 ::selection { background: var(--green); color: #05110B; }
 .b7 :focus-visible { outline: 2px solid var(--green-2); outline-offset: 3px; border-radius: 2px; }
 
-.b7 [id] { scroll-margin-top: 92px; }
-.wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding-left: var(--gut); padding-right: var(--gut); }
+.b7 [id] { scroll-margin-top: calc(var(--nav-h) + 24px); }
+/* max() con env(): en iPhone apaisado el contenido no queda bajo el notch */
+.wrap {
+  width: 100%; max-width: var(--max); margin: 0 auto;
+  padding-left: max(var(--gut), env(safe-area-inset-left));
+  padding-right: max(var(--gut), env(safe-area-inset-right));
+}
 
 /* ---------- tipografía utilitaria ---------- */
 .eyebrow {
@@ -88,11 +98,14 @@ html, body { margin: 0; padding: 0; }
   transition: transform .12s ease, box-shadow .12s ease, background .18s ease, border-color .18s ease;
 }
 .key-a { background: var(--green); color: #05110B; box-shadow: 0 4px 0 #147052, 0 12px 24px -14px rgba(20,112,82,.7); }
-.key-a:hover { background: #178864; }
 .key-a:active { transform: translateY(4px); box-shadow: 0 0 0 #147052, 0 6px 12px -10px rgba(20,112,82,.6); }
 .key-b { background: var(--case-3); color: var(--bone); border: 1px solid var(--line-2); box-shadow: 0 4px 0 #C3CDB5; }
-.key-b:hover { border-color: var(--green); color: var(--green-2); }
 .key-b:active { transform: translateY(4px); box-shadow: 0 0 0 #C3CDB5; }
+/* el :hover solo se aplica donde hay puntero real: en táctil se quedaría pegado */
+@media (hover: hover) {
+  .key-a:hover { background: #178864; }
+  .key-b:hover { border-color: var(--green); color: var(--green-2); }
+}
 
 /* ---------- reveal en scroll ---------- */
 .rv { opacity: 0; transform: translateY(26px); transition: opacity .78s cubic-bezier(.2,.7,.25,1), transform .78s cubic-bezier(.2,.7,.25,1); transition-delay: var(--d, 0ms); }
@@ -117,3 +130,40 @@ html, body { margin: 0; padding: 0; }
 .sec-head { max-width: 720px; margin-bottom: clamp(38px, 5vw, 60px); }
 .sec-head h2 { margin: 18px 0 18px; }
 
+/* ================================================================== *
+ *  ADAPTACIÓN POR DISPOSITIVO
+ *  Escala global: la retícula de cada sección se ajusta en su propio
+ *  archivo. Aquí solo van el ritmo vertical, la tipografía y el táctil.
+ * ================================================================== */
+
+/* --- teléfono: barra más baja y secciones más cortas --- */
+@media (max-width: 720px) {
+  .b7 { --nav-h: 58px; }
+  .sec { padding: clamp(58px, 13vw, 84px) 0; }
+  .sec-head { margin-bottom: 32px; }
+  .sec-head h2 { margin: 14px 0 14px; }
+  .h2 { font-size: clamp(27px, 7.2vw, 38px); }
+  .h3 { font-size: clamp(19px, 5vw, 22px); }
+  .lead { font-size: 15.5px; line-height: 1.62; }
+  .bezel { padding: 8px; border-radius: 7px; }
+}
+
+/* --- pantallas de 360 px o menos: gutter y microtipografía --- */
+@media (max-width: 380px) {
+  .b7 { --gut: 16px; }
+  .eyebrow { font-size: 9.5px; letter-spacing: .16em; gap: 7px; }
+  .key { padding: 13px 16px; font-size: 11px; letter-spacing: .1em; }
+}
+
+/* --- táctil: objetivos de 44 px y realce de toque de la marca --- */
+@media (pointer: coarse) {
+  .key { min-height: 46px; }
+  .b7 a, .b7 button { -webkit-tap-highlight-color: rgba(29,158,117,.18); }
+}
+
+/* --- teléfono apaisado: la altura es el recurso escaso --- */
+@media (max-height: 520px) and (orientation: landscape) {
+  .b7 { --nav-h: 52px; }
+  .sec { padding: 56px 0; }
+  .sec-head { margin-bottom: 28px; }
+}

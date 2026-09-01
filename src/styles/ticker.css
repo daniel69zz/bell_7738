@@ -1,7 +1,14 @@
 /* ---------- ticker ---------- */
 .ticker { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--case-2); overflow: hidden; }
 .ticker-in { display: flex; width: max-content; animation: slide 34s linear infinite; }
-.ticker:hover .ticker-in { animation-play-state: paused; }
+@media (hover: hover) {
+  .ticker:hover .ticker-in { animation-play-state: paused; }
+}
 @keyframes slide { to { transform: translateX(-50%); } }
 .tick-item { display: flex; align-items: center; gap: 11px; padding: 13px 26px; font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .17em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
 .tick-item i { width: 5px; height: 5px; background: var(--green); border-radius: 50%; box-shadow: 0 0 8px var(--green); font-style: normal; }
+
+@media (max-width: 720px) {
+  .tick-item { padding: 11px 18px; font-size: 9.5px; letter-spacing: .14em; }
+  .ticker-in { animation-duration: 26s; }
+}

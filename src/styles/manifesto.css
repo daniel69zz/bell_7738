@@ -13,4 +13,12 @@
 
 @media (max-width: 940px) {
   .mani-grid { grid-template-columns: 1fr; }
+  .mani p { max-width: 58ch; }
+}
+
+@media (max-width: 720px) {
+  .mani p { max-width: none; }
+  .mani-screen { padding: 16px 16px 12px; }
+  .mani-bar { max-width: none; }
+  .mani-scroll { font-size: 8.5px; }
 }

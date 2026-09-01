@@ -3,7 +3,7 @@
 .cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(34px, 5vw, 64px); align-items: start; }
 .cta h2 { margin: 18px 0 20px; }
 .cta-list { display: grid; gap: 1px; margin-top: 30px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
-.cta-item { display: flex; justify-content: space-between; gap: 14px; padding: 15px 18px; background: var(--case-3); font-family: var(--mono); font-size: 11px; letter-spacing: .06em; }
+.cta-item { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 14px; padding: 15px 18px; background: var(--case-3); font-family: var(--mono); font-size: 11px; letter-spacing: .06em; }
 .cta-item b { color: var(--muted); font-weight: 400; text-transform: uppercase; font-size: 9.5px; letter-spacing: .15em; }
 .form { padding: 26px; background: var(--case-3); border: 1px solid var(--line); border-radius: 10px; display: grid; gap: 16px; box-shadow: 0 20px 44px -34px rgba(21,33,27,.5); }
 .field { display: grid; gap: 7px; }
@@ -23,15 +23,32 @@
 .field textarea { resize: vertical; min-height: 96px; }
 .chips { display: flex; flex-wrap: wrap; gap: 7px; }
 .chip { padding: 9px 13px; border: 1px solid var(--line); border-radius: 4px; background: var(--case); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; color: var(--muted); transition: all .2s ease; }
-.chip:hover { border-color: var(--line-2); color: var(--bone); }
+@media (hover: hover) {
+  .chip:hover { border-color: var(--line-2); color: var(--bone); }
+}
 .chip.sel { background: rgba(29,158,117,.12); border-color: var(--green); color: var(--green-2); }
 .form-note { font-family: var(--mono); font-size: 10px; letter-spacing: .06em; color: var(--muted); }
 .form-note.err { color: var(--amber); }
 .sent { display: grid; gap: 16px; place-items: start; padding: 34px 26px; }
 .sent h3 { font-size: 24px; }
 .sent p { color: var(--muted); font-size: 15px; }
-.sent-scr { width: 190px; }
+.sent-scr { width: 100%; max-width: 190px; }
 
 @media (max-width: 940px) {
   .cta-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  .form { padding: 20px 18px; gap: 14px; }
+  .sent { padding: 26px 18px; }
+  .cta-item { padding: 13px 15px; }
+  .cta-list { margin-top: 24px; }
+}
+
+/* En táctil los campos van a 16 px: por debajo de esa medida iOS hace
+   zoom al enfocar y deja la página descuadrada. */
+@media (pointer: coarse) {
+  .field input, .field textarea { font-size: 16px; }
+  .chip { padding: 11px 14px; font-size: 10.5px; }
+  .field textarea { min-height: 110px; }
 }

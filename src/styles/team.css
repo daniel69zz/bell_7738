@@ -5,7 +5,9 @@
 .quote footer { margin-top: 16px; font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 .stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
 .stack span { display: inline-flex; align-items: center; gap: 8px; padding: 8px 13px; border: 1px solid var(--line); border-radius: 4px; background: var(--case-3); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; color: var(--muted); transition: border-color .25s ease, color .25s ease; }
-.stack span:hover { border-color: rgba(29,158,117,.6); color: var(--green-2); }
+@media (hover: hover) {
+  .stack span:hover { border-color: rgba(29,158,117,.6); color: var(--green-2); }
+}
 .stack span::before { content: ""; width: 4px; height: 4px; background: var(--green); border-radius: 50%; }
 .roles { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
 .role { display: flex; align-items: baseline; gap: 16px; padding: 18px 20px; background: var(--case-3); }
@@ -15,4 +17,13 @@
 @media (max-width: 940px) {
   .team-grid { grid-template-columns: 1fr; }
   .role { flex-direction: column; gap: 4px; }
+}
+
+@media (max-width: 720px) {
+  .quote { padding: 22px 20px; }
+  .stack { gap: 7px; margin-top: 22px; }
+  .stack span { padding: 9px 12px; }
+  .role { padding: 16px 18px; }
+  .role b { font-size: 15px; min-width: 0; }
+  .role span { font-size: 13.5px; }
 }
