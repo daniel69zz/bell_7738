@@ -127,7 +127,10 @@ html, body { margin: 0; padding: 0; }
 
 /* ---------- ritmo de sección ---------- */
 .sec { padding: clamp(72px, 10vw, 130px) 0; }
-.sec-head { max-width: 720px; margin-bottom: clamp(38px, 5vw, 60px); }
+/* El bloque se centra en el contenedor, pero el texto sigue alineado a la
+   izquierda: los títulos se despegan del margen sin perder el tono editorial.
+   Por debajo de 720px de contenido el auto no tiene efecto y queda a ras. */
+.sec-head { max-width: 720px; margin: 0 auto clamp(38px, 5vw, 60px); }
 .sec-head h2 { margin: 18px 0 18px; }
 
 /* ================================================================== *
