@@ -23,7 +23,7 @@ html, body { margin: 0; padding: 0; }
   --disp: 'Archivo', 'Instrument Sans', sans-serif;
   --mono: 'Martian Mono', ui-monospace, monospace;
 
-  --gut: clamp(20px, 5vw, 64px);
+  --gut: clamp(24px, 5.5vw, 64px);
   --max: 1200px;
   --nav-h: 68px;        /* alto de la barra fija; de aquí sale el scroll-margin */
 
@@ -126,7 +126,7 @@ html, body { margin: 0; padding: 0; }
 }
 
 /* ---------- ritmo de sección ---------- */
-.sec { padding: clamp(72px, 10vw, 130px) 0; }
+.sec { padding: clamp(78px, 11vw, 130px) 0; }
 /* El bloque se centra en el contenedor, pero el texto sigue alineado a la
    izquierda: los títulos se despegan del margen sin perder el tono editorial.
    Por debajo de 720px de contenido el auto no tiene efecto y queda a ras. */
@@ -139,21 +139,15 @@ html, body { margin: 0; padding: 0; }
  *  archivo. Aquí solo van el ritmo vertical, la tipografía y el táctil.
  * ================================================================== */
 
-/* --- teléfono: barra más baja y secciones más cortas --- */
+/* --- teléfono: solo la barra baja; el ritmo vertical se mantiene --- */
 @media (max-width: 720px) {
   .b7 { --nav-h: 58px; }
-  .sec { padding: clamp(58px, 13vw, 84px) 0; }
-  .sec-head { margin-bottom: 32px; }
-  .sec-head h2 { margin: 14px 0 14px; }
-  .h2 { font-size: clamp(27px, 7.2vw, 38px); }
-  .h3 { font-size: clamp(19px, 5vw, 22px); }
-  .lead { font-size: 15.5px; line-height: 1.62; }
-  .bezel { padding: 8px; border-radius: 7px; }
+  .lead { line-height: 1.7; }   /* un punto más de interlínea al leer de cerca */
+  .bezel { padding: 9px; border-radius: 7px; }
 }
 
-/* --- pantallas de 360 px o menos: gutter y microtipografía --- */
+/* --- pantallas de 360 px o menos: solo microtipografía, el margen se respeta --- */
 @media (max-width: 380px) {
-  .b7 { --gut: 16px; }
   .eyebrow { font-size: 9.5px; letter-spacing: .16em; gap: 7px; }
   .key { padding: 13px 16px; font-size: 11px; letter-spacing: .1em; }
 }

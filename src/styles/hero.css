@@ -1,8 +1,8 @@
 /* ---------- hero ---------- */
 /* el hueco superior se calcula desde el alto real de la barra fija */
-.hero { padding: calc(var(--nav-h) + clamp(38px, 7vw, 64px)) 0 clamp(52px, 8vw, 96px); }
+.hero { padding: calc(var(--nav-h) + clamp(46px, 7vw, 64px)) 0 clamp(60px, 8vw, 96px); }
 .hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; gap: clamp(36px, 5vw, 72px); align-items: center; }
-.hero h1 { font-size: clamp(33px, 6.4vw, 68px); font-weight: 800; font-stretch: 118%; margin: 22px 0 24px; }
+.hero h1 { font-size: clamp(35px, 6.6vw, 68px); font-weight: 800; font-stretch: 118%; margin: 22px 0 24px; }
 .hero h1 em { font-style: normal; color: var(--green-2); }
 .hero-lead { max-width: 46ch; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
@@ -30,18 +30,17 @@
 }
 
 @media (max-width: 720px) {
-  .hero-grid { gap: 30px; }
-  .hero h1 { margin: 18px 0 18px; }
+  .hero-grid { gap: 38px; }
   .hero-lead { max-width: none; }
-  .hero-actions { margin-top: 26px; gap: 10px; }
+  .hero-actions { margin-top: 32px; }
   .hero-actions .key { flex: 1 1 200px; }   /* dos botones que llenan el ancho */
-  .hero-meta { margin-top: 24px; padding-top: 18px; gap: 8px 14px; }
-  .screen { padding: 14px 15px 12px; }
-  .scr-top { flex-wrap: wrap; gap: 8px 12px; }
+  .hero-meta { margin-top: 30px; padding-top: 22px; gap: 10px 16px; }
+  .screen { padding: 16px 17px 13px; }
+  .scr-top { flex-wrap: wrap; gap: 9px 14px; }
 }
 
 @media (max-width: 420px) {
-  .hero-meta { flex-direction: column; gap: 7px; }
+  .hero-meta { flex-direction: column; gap: 9px; }
   .reading { font-size: 13px; letter-spacing: .18em; }
   .scr-hint { font-size: 8px; }
 }

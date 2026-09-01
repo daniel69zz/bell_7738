@@ -11,9 +11,9 @@
 }
 
 @media (max-width: 720px) {
-  .stats-grid { gap: 26px 18px; }
-  .stat { gap: 10px; }
-  .stat-scr { height: 42px; }
+  .stats-grid { gap: 34px 20px; }
+  .stat { gap: 12px; }
+  .stat-scr { height: 46px; }
   .stat b { font-size: 13px; }
   .stat span { font-size: 9.5px; letter-spacing: .08em; line-height: 1.5; }
 }

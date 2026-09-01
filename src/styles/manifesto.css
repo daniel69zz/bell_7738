@@ -18,7 +18,6 @@
 
 @media (max-width: 720px) {
   .mani p { max-width: none; }
-  .mani-screen { padding: 16px 16px 12px; }
+  .mani-screen { padding: 18px 18px 14px; }
   .mani-bar { max-width: none; }
-  .mani-scroll { font-size: 8.5px; }
 }

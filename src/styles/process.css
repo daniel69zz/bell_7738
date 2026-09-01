@@ -20,11 +20,10 @@
 
 @media (max-width: 640px) {
   .proc { grid-template-columns: 1fr; }
-  .proc-step { border-right: none; border-bottom: 1px solid var(--line); padding: 24px 0 26px; }
+  .proc-step { border-right: none; border-bottom: 1px solid var(--line); padding: 28px 0 30px; }
   .proc-step:nth-child(2n) { padding-left: 0; }
-  .proc-step:nth-child(n+3) { padding-top: 24px; }
+  .proc-step:nth-child(n+3) { padding-top: 28px; }
   .proc-step:last-child { border-bottom: none; }
   .proc-step p { padding-right: 0; }
-  .proc-num { width: 36px; margin-bottom: 16px; }
-  .proc-step h3 { font-size: 19px; }
+  .proc-num { width: 40px; margin-bottom: 18px; }
 }

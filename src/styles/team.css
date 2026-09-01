@@ -20,10 +20,8 @@
 }
 
 @media (max-width: 720px) {
-  .quote { padding: 22px 20px; }
-  .stack { gap: 7px; margin-top: 22px; }
-  .stack span { padding: 9px 12px; }
-  .role { padding: 16px 18px; }
+  .quote { padding: 24px 22px; }
+  .stack { margin-top: 24px; }
+  .role { padding: 18px; }
   .role b { font-size: 15px; min-width: 0; }
-  .role span { font-size: 13.5px; }
 }

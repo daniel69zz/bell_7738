@@ -39,10 +39,10 @@
 }
 
 @media (max-width: 720px) {
-  .form { padding: 20px 18px; gap: 14px; }
-  .sent { padding: 26px 18px; }
-  .cta-item { padding: 13px 15px; }
-  .cta-list { margin-top: 24px; }
+  .form { padding: 22px 20px; }
+  .sent { padding: 30px 20px; }
+  .cta-item { padding: 15px 16px; }
+  .cta-list { margin-top: 26px; }
 }
 
 /* En táctil los campos van a 16 px: por debajo de esa medida iOS hace

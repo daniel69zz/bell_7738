@@ -28,8 +28,7 @@
 }
 
 @media (max-width: 700px) {
-  .svc-grid { grid-template-columns: 1fr; gap: 14px; }
-  .svc { padding: 24px 20px 26px; gap: 14px; }
+  .svc-grid { grid-template-columns: 1fr; gap: 16px; }
+  .svc { padding: 26px 22px 28px; }
   .svc:last-child { grid-column: auto; }
-  .svc h3 { font-size: 20px; }
 }

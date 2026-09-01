@@ -9,6 +9,6 @@
 .tick-item i { width: 5px; height: 5px; background: var(--green); border-radius: 50%; box-shadow: 0 0 8px var(--green); font-style: normal; }
 
 @media (max-width: 720px) {
-  .tick-item { padding: 11px 18px; font-size: 9.5px; letter-spacing: .14em; }
+  .tick-item { padding: 13px 21px; font-size: 9.5px; letter-spacing: .14em; }
   .ticker-in { animation-duration: 26s; }
 }
