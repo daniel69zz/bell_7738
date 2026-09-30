@@ -1,19 +1,39 @@
 /* ---------- cifras ---------- */
-.stats { background: var(--case-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
-.stat { display: flex; flex-direction: column; gap: 14px; }
-.stat-scr { height: 54px; }
-.stat b { font-family: var(--disp); font-size: 14px; font-weight: 700; letter-spacing: -.01em; }
-.stat span { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+/* Una sola pantalla larga con cuatro registros, como la memoria de la calculadora */
+.stats { padding-block: 0 clamp(40px, 6vw, 72px); }
+.stats-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  background: linear-gradient(170deg, var(--panel), var(--panel-2));
+  border-radius: 16px; box-shadow: 0 0 0 12px var(--case-2), inset 0 2px 18px rgba(0,0,0,.6);
+  padding-block: clamp(32px, 4vw, 48px);
+  /* el panel ocupa el ancho del contenido, no el del .wrap con su gutter */
+  width: calc(100% - 2 * var(--gut)); max-width: calc(var(--max) - 2 * var(--gut));
+  padding-inline: 0;
+  /* los segmentos de las cifras usan var(--green): aquí se encienden a tope */
+  --green: var(--ink);
+}
+.stat { display: flex; flex-direction: column; gap: 10px; padding: 0 clamp(18px, 2.4vw, 32px); }
+.stat + .stat { border-left: 1px solid rgba(63,211,160,.14); }
+.stat-scr { height: 56px; margin-bottom: 10px; }
+.stat-scr svg { overflow: visible; }
+.stat b { font-family: var(--disp); font-size: 17px; font-weight: 700; font-stretch: 110%; color: var(--on-dark); letter-spacing: -.01em; }
+.stat span { font-size: 14.5px; line-height: 1.5; color: var(--dim); }
 
 @media (max-width: 940px) {
-  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 20px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
+  .stat:nth-child(3) { border-left: none; }
 }
 
 @media (max-width: 720px) {
-  .stats-grid { gap: 34px 20px; }
-  .stat { gap: 12px; }
-  .stat-scr { height: 46px; }
-  .stat b { font-size: 13px; }
-  .stat span { font-size: 9.5px; letter-spacing: .08em; line-height: 1.5; }
+  .stats-grid { box-shadow: 0 0 0 8px var(--case-2), inset 0 2px 18px rgba(0,0,0,.6); }
+  .stat { padding: 0 18px; }
+  .stat-scr { height: 44px; }
+  .stat b { font-size: 15.5px; }
+  .stat span { font-size: 14px; }
+}
+
+@media (max-width: 400px) {
+  .stats-grid { grid-template-columns: 1fr; row-gap: 0; padding-block: 8px; }
+  .stat, .stat + .stat { border-left: none; padding: 22px 20px; }
+  .stat + .stat { border-top: 1px solid rgba(63,211,160,.14); }
 }

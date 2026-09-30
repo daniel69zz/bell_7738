@@ -51,12 +51,13 @@ function HeroScreen() {
 export default function Hero() {
   return (
     <section className="hero wrap" id="top">
+      <HeroScreen />
       <div className="hero-grid">
-        <div>
-          <span className="eyebrow rv">Software a medida · Automatización · SaaS</span>
-          <h1 className="rv" style={{ "--d": "80ms" }}>
-            El software que tu operación <em>ya está pidiendo</em>, construido a tu medida.
-          </h1>
+        <h1 className="rv" style={{ "--d": "80ms" }}>
+          El software que tu operación <em>ya está pidiendo</em>, construido a tu medida.
+        </h1>
+        <div className="hero-side">
+          <span className="eyebrow rv" style={{ "--d": "140ms" }}>Software a medida, automatización y SaaS</span>
           <p className="lead hero-lead rv" style={{ "--d": "160ms" }}>
             Somos un equipo pequeño que diseña, construye y mantiene sistemas internos,
             automatizaciones y productos SaaS. Entregamos cada dos semanas y el código
@@ -70,14 +71,13 @@ export default function Hero() {
               Ver lo que hicimos
             </a>
           </div>
-          <div className="hero-meta rv" style={{ "--d": "320ms" }}>
-            <span><b>La Paz, Bolivia</b> · trabajo remoto</span>
-            <span>Respondemos en <b>menos de 24 h</b></span>
-            <span>Primera reunión <b>sin costo</b></span>
-          </div>
         </div>
-        <HeroScreen />
       </div>
+      <ul className="hero-meta rv" style={{ "--d": "320ms" }}>
+        <li><b>La Paz, Bolivia</b>Trabajo remoto</li>
+        <li><b>Menos de 24 h</b>Tiempo de respuesta</li>
+        <li><b>Sin costo</b>Primera reunión</li>
+      </ul>
     </section>
   );
 }

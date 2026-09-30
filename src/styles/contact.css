@@ -1,54 +1,46 @@
 /* ---------- contacto ---------- */
-.cta { background: var(--case-2); border-top: 1px solid var(--line); }
-.cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(34px, 5vw, 64px); align-items: start; }
-.cta h2 { margin: 18px 0 20px; }
-.cta-list { display: grid; gap: 1px; margin-top: 30px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
-.cta-item { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 14px; padding: 15px 18px; background: var(--case-3); font-family: var(--mono); font-size: 11px; letter-spacing: .06em; }
-.cta-item b { color: var(--muted); font-weight: 400; text-transform: uppercase; font-size: 9.5px; letter-spacing: .15em; }
-.form { padding: 26px; background: var(--case-3); border: 1px solid var(--line); border-radius: 10px; display: grid; gap: 16px; box-shadow: 0 20px 44px -34px rgba(21,33,27,.5); }
-.field { display: grid; gap: 7px; }
-.field label { font-family: var(--mono); font-size: 9.5px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+.cta { background: var(--case-2); }
+.cta-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(36px, 6vw, 88px); align-items: start; }
+.cta h2 { margin: 20px 0 24px; }
+.cta-list { display: grid; margin-top: 36px; border-top: 1px solid var(--line-2); }
+.cta-item { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; padding: 15px 0; border-bottom: 1px solid var(--line-2); font-size: 16px; }
+.cta-item b { color: var(--muted); font-weight: 500; }
+.cta-item span { font-weight: 600; }
+
+/* el formulario es la cara del aparato: superficie clara y teclas */
+.form { padding: clamp(22px, 3vw, 36px); background: var(--case-3); border-radius: 20px; display: grid; gap: 20px; box-shadow: 0 1px 0 #fff inset, 0 30px 60px -40px rgba(27,30,26,.5); }
+.field { display: grid; gap: 8px; }
+.field label { font-size: 15px; font-weight: 600; color: var(--bone); }
 .field input, .field textarea {
-  font-family: var(--sans); font-size: 15px; color: var(--bone); background: var(--case);
-  border: 1px solid var(--line); border-radius: 5px; padding: 12px 14px; width: 100%;
+  font-family: var(--sans); font-size: 16px; color: var(--bone); background: var(--case);
+  border: 1px solid transparent; border-radius: 10px; padding: 14px 16px; width: 100%;
+  box-shadow: inset 0 1px 2px rgba(27,30,26,.12);
   transition: border-color .2s ease, background .2s ease;
 }
-.field input::placeholder, .field textarea::placeholder { color: #94A18C; }
+.field input::placeholder, .field textarea::placeholder { color: #858B7F; }
 .field input:focus, .field textarea:focus { outline: none; border-color: var(--green); background: #FFFFFF; }
 /* el anillo de foco se mantiene para teclado; el radio explícito evita
    que la regla global de :focus-visible recorte las esquinas del campo */
 .field input:focus-visible, .field textarea:focus-visible {
-  outline: 2px solid var(--green-2); outline-offset: 2px; border-radius: 5px;
+  outline: 2px solid var(--green-2); outline-offset: 2px; border-radius: 10px;
 }
-.field textarea { resize: vertical; min-height: 96px; }
-.chips { display: flex; flex-wrap: wrap; gap: 7px; }
-.chip { padding: 9px 13px; border: 1px solid var(--line); border-radius: 4px; background: var(--case); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; color: var(--muted); transition: all .2s ease; }
+.field textarea { resize: vertical; min-height: 110px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { padding: 10px 16px; border-radius: 10px; background: var(--case); font-size: 15px; font-weight: 500; color: var(--muted); box-shadow: inset 0 0 0 1px var(--line), 0 2px 0 var(--line); transition: background .15s ease, color .15s ease, box-shadow .15s ease, transform .1s ease; }
 @media (hover: hover) {
-  .chip:hover { border-color: var(--line-2); color: var(--bone); }
+  .chip:hover { color: var(--bone); background: #FFFFFF; }
 }
-.chip.sel { background: rgba(29,158,117,.12); border-color: var(--green); color: var(--green-2); }
-.form-note { font-family: var(--mono); font-size: 10px; letter-spacing: .06em; color: var(--muted); }
-.form-note.err { color: var(--amber); }
-.sent { display: grid; gap: 16px; place-items: start; padding: 34px 26px; }
-.sent h3 { font-size: 24px; }
-.sent p { color: var(--muted); font-size: 15px; }
-.sent-scr { width: 100%; max-width: 190px; }
+.chip.sel { background: var(--graphite); color: var(--ink); box-shadow: inset 0 0 0 1px var(--graphite), 0 0 0 transparent; transform: translateY(2px); }
+.form .key { width: 100%; margin-top: 4px; }
+.form-note { font-size: 14px; color: var(--muted); }
+.form-note.err { color: #9A3B10; font-weight: 600; }
+.sent { display: grid; gap: 16px; place-items: start; padding: clamp(28px, 4vw, 44px); }
+.sent h3 { font-size: 28px; }
+.sent p { color: var(--muted); font-size: 16px; }
+.sent .key { width: auto; }
+.sent-scr { width: 100%; max-width: 240px; padding: 16px 18px; background: var(--panel-2); border-radius: 8px; --green: var(--ink); }
+.sent-scr svg { overflow: visible; }
 
 @media (max-width: 940px) {
   .cta-grid { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 720px) {
-  .form { padding: 22px 20px; }
-  .sent { padding: 30px 20px; }
-  .cta-item { padding: 15px 16px; }
-  .cta-list { margin-top: 26px; }
-}
-
-/* En táctil los campos van a 16 px: por debajo de esa medida iOS hace
-   zoom al enfocar y deja la página descuadrada. */
-@media (pointer: coarse) {
-  .field input, .field textarea { font-size: 16px; }
-  .chip { padding: 11px 14px; font-size: 10.5px; }
-  .field textarea { min-height: 110px; }
 }

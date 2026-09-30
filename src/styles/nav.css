@@ -1,38 +1,38 @@
 /* ---------- nav ---------- */
-.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 60; transition: background .3s ease, border-color .3s ease, backdrop-filter .3s ease; border-bottom: 1px solid transparent; }
-.nav.stuck { background: rgba(231,235,223,.88); backdrop-filter: blur(14px); border-bottom-color: var(--line); }
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 60; transition: background .3s ease, box-shadow .3s ease, backdrop-filter .3s ease; }
+.nav.stuck { background: rgba(230,231,225,.9); backdrop-filter: blur(14px) saturate(1.2); box-shadow: 0 1px 0 var(--line); }
 .nav-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: var(--nav-h); }
 .brand { display: flex; align-items: center; gap: 12px; }
-.brand-chip { width: 52px; padding: 5px 6px; background: var(--panel-2); border: 1px solid #0A0F09; border-radius: 3px; }
-.brand-txt { font-family: var(--disp); font-weight: 700; font-size: 15px; letter-spacing: .16em; font-stretch: 100%; }
-.nav-links { display: flex; align-items: center; gap: 30px; }
-.nav-links a { font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); transition: color .2s ease; position: relative; padding: 6px 0; }
-.nav-links a:hover { color: var(--bone); }
-.nav-links a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 0; height: 1px; background: var(--green); transition: right .28s cubic-bezier(.2,.7,.25,1); }
-.nav-links a:hover::after { right: 0; }
+.brand-chip { width: 56px; padding: 6px 7px; background: var(--panel-2); border-radius: 5px; box-shadow: 0 0 0 3px var(--case-2); }
+.brand-txt { font-family: var(--disp); font-weight: 760; font-size: 16px; letter-spacing: .02em; font-stretch: 120%; }
+.nav-links { display: flex; align-items: center; gap: 4px; padding: 4px; border-radius: 12px; background: var(--case-2); }
+.nav-links a { font-size: 15px; font-weight: 500; color: var(--muted); padding: 8px 16px; border-radius: 8px; transition: color .2s ease, background .2s ease; }
+@media (hover: hover) {
+  .nav-links a:hover { color: var(--bone); background: var(--case-3); }
+}
 .nav-cta { display: flex; align-items: center; gap: 12px; }
-.burger { display: none; width: 42px; height: 42px; flex: none; border: 1px solid var(--line-2); border-radius: 5px; align-items: center; justify-content: center; }
-.burger span { display: block; width: 16px; height: 1.5px; background: var(--bone); position: relative; transition: transform .25s ease, background .25s ease; }
-.burger span::before, .burger span::after { content: ""; position: absolute; left: 0; width: 16px; height: 1.5px; background: var(--bone); transition: transform .25s ease; }
-.burger span::before { top: -5px; } .burger span::after { top: 5px; }
+.nav-cta .key { min-height: 44px; padding: 0 20px; font-size: 15px; }
+.burger { display: none; width: 44px; height: 44px; flex: none; border-radius: 10px; background: var(--case-2); align-items: center; justify-content: center; }
+.burger span { display: block; width: 18px; height: 2px; border-radius: 2px; background: var(--bone); position: relative; transition: transform .25s ease, background .25s ease; }
+.burger span::before, .burger span::after { content: ""; position: absolute; left: 0; width: 18px; height: 2px; border-radius: 2px; background: var(--bone); transition: transform .25s ease; }
+.burger span::before { top: -6px; } .burger span::after { top: 6px; }
 .burger.open span { background: transparent; }
-.burger.open span::before { transform: translateY(5px) rotate(45deg); }
-.burger.open span::after { transform: translateY(-5px) rotate(-45deg); }
+.burger.open span::before { transform: translateY(6px) rotate(45deg); }
+.burger.open span::after { transform: translateY(-6px) rotate(-45deg); }
 /* El menú cuelga de la barra fija: se limita al alto real de la ventana
    (dvh, no vh, por la barra de direcciones de Safari) y hace scroll solo. */
 .mobile-menu {
-  display: none; flex-direction: column; gap: 2px;
+  display: none; flex-direction: column;
   padding: 8px max(var(--gut), env(safe-area-inset-left))
-           calc(22px + env(safe-area-inset-bottom))
+           calc(24px + env(safe-area-inset-bottom))
            max(var(--gut), env(safe-area-inset-right));
-  background: rgba(231,235,223,.97); border-bottom: 1px solid var(--line);
-  backdrop-filter: blur(14px);
+  background: var(--case); box-shadow: 0 1px 0 var(--line);
   max-height: calc(100vh - var(--nav-h));    /* reserva para navegadores sin dvh */
   max-height: calc(100dvh - var(--nav-h));
   overflow-y: auto; overscroll-behavior: contain;
 }
-.mobile-menu a { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; padding: 14px 0; border-bottom: 1px solid var(--line); color: var(--muted); }
-.mobile-menu .key { padding: 15px 18px; border-bottom: none; font-size: 11.5px; letter-spacing: .13em; color: #05110B; }
+.mobile-menu a { font-family: var(--disp); font-size: 26px; font-weight: 700; font-stretch: 115%; letter-spacing: -.02em; padding: 14px 0; border-bottom: 1px solid var(--line); color: var(--bone); }
+.mobile-menu .key { font-family: var(--sans); font-size: 16px; font-weight: 600; font-stretch: 100%; letter-spacing: 0; border-bottom: none; color: var(--on-dark); margin-top: 24px !important; }
 
 @media (max-width: 940px) {
   .nav-links { display: none; }
@@ -40,21 +40,14 @@
   .nav-cta .key { display: none; }
   .mobile-menu { display: flex; }
   /* con el menú desplegado la barra deja de ser transparente aunque estemos arriba */
-  .nav.open-menu { background: rgba(231,235,223,.97); backdrop-filter: blur(14px); border-bottom-color: var(--line); }
+  .nav.open-menu { background: var(--case); box-shadow: none; }
 }
 
-/* entre 941 y 1080 px los enlaces siguen cabiendo, pero justos */
 @media (min-width: 941px) and (max-width: 1080px) {
-  .nav-links { gap: 22px; }
-  .nav-links a { font-size: 10px; letter-spacing: .11em; }
+  .nav-links a { padding: 8px 12px; font-size: 14.5px; }
 }
 
 @media (max-width: 380px) {
-  .brand-chip { width: 44px; }
-  .brand-txt { font-size: 13px; letter-spacing: .11em; }
-}
-
-@media (pointer: coarse) {
-  .burger { width: 44px; height: 44px; }
-  .mobile-menu a { padding: 16px 0; }
+  .brand-chip { width: 46px; }
+  .brand-txt { font-size: 14px; }
 }

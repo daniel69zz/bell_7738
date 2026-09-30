@@ -19,7 +19,7 @@ export default function Team() {
         <div>
           <div className="quote rv" style={{ "--d": "120ms" }}>
             <p>“Llegamos con una planilla de 40 pestañas y salimos con un sistema que el equipo abrió solo, sin manual.”</p>
-            <footer>Marcela Ríos · Operaciones, Distribuidora Andina</footer>
+            <footer>Marcela Ríos, Operaciones en Distribuidora Andina</footer>
           </div>
           <div className="roles rv" style={{ "--d": "180ms" }}>
             {ROLES.map(([r, d]) => (

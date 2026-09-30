@@ -1,14 +1,15 @@
 /* ---------- ticker ---------- */
-.ticker { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--case-2); overflow: hidden; }
-.ticker-in { display: flex; width: max-content; animation: slide 34s linear infinite; }
+.ticker { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; }
+.ticker-in { display: flex; width: max-content; animation: slide 48s linear infinite; }
 @media (hover: hover) {
   .ticker:hover .ticker-in { animation-play-state: paused; }
 }
 @keyframes slide { to { transform: translateX(-50%); } }
-.tick-item { display: flex; align-items: center; gap: 11px; padding: 13px 26px; font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .17em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
-.tick-item i { width: 5px; height: 5px; background: var(--green); border-radius: 50%; box-shadow: 0 0 8px var(--green); font-style: normal; }
+.tick-item { display: flex; align-items: center; gap: 28px; padding: 18px 28px 18px 0; font-family: var(--disp); font-size: 17px; font-weight: 600; font-stretch: 112%; letter-spacing: -.01em; color: var(--muted); white-space: nowrap; }
+/* separador: un segmento "g" apagado */
+.tick-item i { order: 2; width: 16px; height: 4px; background: var(--line-2); clip-path: polygon(0 50%, 2px 0, calc(100% - 2px) 0, 100% 50%, calc(100% - 2px) 100%, 2px 100%); }
 
 @media (max-width: 720px) {
-  .tick-item { padding: 13px 21px; font-size: 9.5px; letter-spacing: .14em; }
-  .ticker-in { animation-duration: 26s; }
+  .tick-item { padding: 15px 22px 15px 0; gap: 22px; font-size: 15px; }
+  .ticker-in { animation-duration: 36s; }
 }

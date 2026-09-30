@@ -1,14 +1,12 @@
 /* ---------- pie ---------- */
-.foot { border-top: 1px solid var(--line); padding: 44px 0 40px; }
-.foot-in { display: flex; flex-wrap: wrap; gap: 26px; justify-content: space-between; align-items: flex-end; }
-.foot-nav { display: flex; flex-wrap: wrap; gap: 22px; font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.foot { background: var(--case-2); padding: 0 0 calc(40px + env(safe-area-inset-bottom)); }
+.foot-in { display: flex; flex-wrap: wrap; gap: 28px; justify-content: space-between; align-items: flex-end; padding-top: 40px; border-top: 1px solid var(--line-2); }
+.foot-nav { display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 15px; font-weight: 500; color: var(--muted); }
 @media (hover: hover) {
   .foot-nav a:hover { color: var(--bone); }
 }
-.foot-small { font-family: var(--mono); font-size: 9.5px; letter-spacing: .1em; color: #7B876F; margin-top: 14px; }
+.foot-small { font-size: 14px; color: var(--muted); margin-top: 14px; }
 
 @media (max-width: 720px) {
-  .foot { padding: 40px 0 calc(36px + env(safe-area-inset-bottom)); }
-  .foot-in { flex-direction: column; align-items: flex-start; gap: 28px; }
-  .foot-nav { gap: 16px 22px; }
+  .foot-in { flex-direction: column; align-items: flex-start; }
 }

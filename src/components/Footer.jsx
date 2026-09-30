@@ -14,7 +14,7 @@ export default function Footer() {
             </span>
             <span className="brand-txt">BELL 7738</span>
           </div>
-          <p className="foot-small">Software a medida · Automatización · SaaS · La Paz, Bolivia</p>
+          <p className="foot-small">Software a medida, automatización y SaaS. La Paz, Bolivia.</p>
         </div>
         <div>
           <nav className="foot-nav">

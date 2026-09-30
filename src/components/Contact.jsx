@@ -31,7 +31,7 @@ export default function Contact() {
             <div className="cta-item"><b>Correo</b><span>hola@bell7738.com</span></div>
             <div className="cta-item"><b>WhatsApp</b><span>+591 700 00000</span></div>
             <div className="cta-item"><b>Oficina</b><span>La Paz, Bolivia</span></div>
-            <div className="cta-item"><b>Horario</b><span>Lun a vie · 09:00–18:00</span></div>
+            <div className="cta-item"><b>Horario</b><span>Lunes a viernes, 09:00–18:00</span></div>
           </div>
         </div>
 

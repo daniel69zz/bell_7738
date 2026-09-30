@@ -1,27 +1,21 @@
 /* ---------- equipo / stack ---------- */
-.team-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(34px, 5vw, 70px); align-items: start; }
-.quote { padding: 26px 28px; background: var(--case-3); border: 1px solid var(--line); border-left: 2px solid var(--green); border-radius: 6px; }
-.quote p { font-family: var(--disp); font-size: clamp(18px, 2vw, 21px); font-weight: 600; line-height: 1.45; letter-spacing: -.012em; font-stretch: 105%; }
-.quote footer { margin-top: 16px; font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
-.stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
-.stack span { display: inline-flex; align-items: center; gap: 8px; padding: 8px 13px; border: 1px solid var(--line); border-radius: 4px; background: var(--case-3); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; color: var(--muted); transition: border-color .25s ease, color .25s ease; }
-@media (hover: hover) {
-  .stack span:hover { border-color: rgba(29,158,117,.6); color: var(--green-2); }
-}
-.stack span::before { content: ""; width: 4px; height: 4px; background: var(--green); border-radius: 50%; }
-.roles { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
-.role { display: flex; align-items: baseline; gap: 16px; padding: 18px 20px; background: var(--case-3); }
-.role b { font-family: var(--disp); font-size: 16px; font-weight: 700; min-width: 132px; }
-.role span { color: var(--muted); font-size: 14px; }
+.team-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: clamp(36px, 6vw, 88px); align-items: start; }
+.team-grid h2 { margin: 20px 0 24px; max-width: 16ch; }
+.quote { margin-bottom: 36px; padding-left: 28px; border-left: 4px solid var(--green); }
+.quote p { font-family: var(--disp); font-size: clamp(22px, 2.3vw, 28px); font-weight: 600; line-height: 1.3; letter-spacing: -.02em; font-stretch: 108%; text-wrap: balance; }
+.quote footer { margin-top: 18px; font-size: 15px; color: var(--muted); }
+.stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
+.stack span { padding: 7px 14px; border-radius: 8px; background: var(--case-2); font-size: 14.5px; font-weight: 500; color: var(--bone); }
+.roles { display: grid; border-top: 1px solid var(--line-2); }
+.role { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 20px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.role b { font-family: var(--disp); font-size: 17px; font-weight: 700; font-stretch: 112%; }
+.role span { color: var(--muted); font-size: 16px; }
 
 @media (max-width: 940px) {
   .team-grid { grid-template-columns: 1fr; }
-  .role { flex-direction: column; gap: 4px; }
 }
 
-@media (max-width: 720px) {
-  .quote { padding: 24px 22px; }
-  .stack { margin-top: 24px; }
-  .role { padding: 18px; }
-  .role b { font-size: 15px; min-width: 0; }
+@media (max-width: 520px) {
+  .quote { padding-left: 20px; }
+  .role { grid-template-columns: 1fr; gap: 4px; }
 }
